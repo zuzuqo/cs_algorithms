@@ -10,9 +10,9 @@ def binary_search(array, target):
     Search target index in array                --- Индекс цели поиска в массиве
     or None                                     --- или None
     '''
-    left, right = (0, len(array)-1)
+    left, right = (0, len(array) - 1)
     while left <= right:
-        mid = (left+right) // 2
+        mid = (left + right) // 2
         if target == array[mid]:
             return mid
         elif target < array[mid]:
@@ -20,6 +20,7 @@ def binary_search(array, target):
         else:
             left = mid + 1
     return None
+
 
 def binary_search_recursive(array, target, left, right):
     '''
@@ -39,14 +40,11 @@ def binary_search_recursive(array, target, left, right):
     '''
     if left > right:
         return None
-    mid = (left+right) // 2
+    mid = (left + right) // 2
 
     if target == array[mid]:
         return mid
     elif target < array[mid]:
-        return binary_search_recursive(array, target, left, mid-1)
+        return binary_search_recursive(array, target, left, mid - 1)
     else:
-        return binary_search_recursive(array, target, mid+1, right)
-
-
-
+        return binary_search_recursive(array, target, mid + 1, right)

@@ -11,32 +11,22 @@ def bfs(graph, node):
     Breadth First Search (BFS)
     :param graph:   data
     :param node:    data element
-    :return:        nested node elements
+    :return:        nested node elements as string
     '''
     visited = []
     queue = []
-
+    res = []
     visited.append(node)
     queue.append(node)
     while queue:
         s = queue.pop(0)
-        print(s, end=' ')
 
+        # print(s, end=' ')
+
+        res.append(s)
         for neighbour in graph[s]:
             if neighbour not in visited:
                 visited.append(neighbour)
                 queue.append(neighbour)
-    print()
-
-
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
-    'D': [],
-    'E': ['F'],
-    'F': []
-}
-
-bfs(graph, 'B')
-bfs(graph, 'A')
+    # print()
+    return ' '.join(res)
